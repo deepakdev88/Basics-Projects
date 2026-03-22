@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitter Clone</title>
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 300,
+        'GRAD' 0,
+        'opsz' 18
+    }
+  </style>
+  <link rel="stylesheet" crossorigin href="/assets/index-Cj8lg9mP.css">
+</head>
+
+<body class=" bg-black text-white">
+
+  <!-- Main Container -->
+  <div class="flex w-[90%] mx-auto">
+
+    <!-- LEFT SIDEBAR -->
+    <div class="  w-fit xl:w-[22%] hidden sm:flex   h-screen  flex-col px-2 py-2 sticky top-0">
+
+      <ul class="flex flex-col gap-4   md:text-md  text-lg  items-center xl:items-start">
+
+        <li>
+          <img class="w-7 invert mb-4" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20aria-hidden='true'%20class='r-4qtqp9%20r-yyyyoo%20r-dnmrzs%20r-bnwqim%20r-lrvibr%20r-m6rgpd%20r-lrsllp%20r-1nao33i%20r-16y2uox%20r-8kz0gk'%3e%3cg%3e%3cpath%20d='M21.742%2021.75l-7.563-11.179%207.056-8.321h-2.456l-5.691%206.714-4.54-6.714H2.359l7.29%2010.776L2.25%2021.75h2.456l6.035-7.118%204.818%207.118h6.191-.008zM7.739%203.818L18.81%2020.182h-2.447L5.29%203.818h2.447z'%3e%3c/path%3e%3c/g%3e%3c/svg%3e" alt="logo">
+        </li>
+
+
+        <li class="flex items-center gap-4 hover:bg-zinc-900 rounded-full cursor-pointer">
+          <img class="w-6 invert" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20aria-hidden='true'%20class='r-4qtqp9%20r-yyyyoo%20r-dnmrzs%20r-bnwqim%20r-lrvibr%20r-m6rgpd%20r-1nao33i%20r-lwhw9o%20r-cnnz9e'%3e%3cg%3e%3cpath%20d='M21.591%207.146L12.52%201.157c-.316-.21-.724-.21-1.04%200l-9.071%205.99c-.26.173-.409.456-.409.757v13.183c0%20.502.418.913.929.913H9.14c.51%200%20.929-.41.929-.913v-7.075h3.909v7.075c0%20.502.417.913.928.913h6.165c.511%200%20.929-.41.929-.913V7.904c0-.301-.158-.584-.408-.758z'%3e%3c/path%3e%3c/g%3e%3c/svg%3e">
+          <span class="hidden xl:block">Home</span>
+        </li>
+
+        <li class="flex items-center gap-4 hover:bg-zinc-900 rounded-full cursor-pointer">
+          <img class="w-6 invert" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20aria-hidden='true'%20class='r-4qtqp9%20r-yyyyoo%20r-dnmrzs%20r-bnwqim%20r-lrvibr%20r-m6rgpd%20r-1nao33i%20r-lwhw9o%20r-cnnz9e'%3e%3cg%3e%3cpath%20d='M10.25%203.75c-3.59%200-6.5%202.91-6.5%206.5s2.91%206.5%206.5%206.5c1.795%200%203.419-.726%204.596-1.904%201.178-1.177%201.904-2.801%201.904-4.596%200-3.59-2.91-6.5-6.5-6.5zm-8.5%206.5c0-4.694%203.806-8.5%208.5-8.5s8.5%203.806%208.5%208.5c0%201.986-.682%203.815-1.824%205.262l4.781%204.781-1.414%201.414-4.781-4.781c-1.447%201.142-3.276%201.824-5.262%201.824-4.694%200-8.5-3.806-8.5-8.5z'%3e%3c/path%3e%3c/g%3e%3c/svg%3e">
+          <span class="hidden xl:block">Explore</span>
+        </li>
+
+        <li class="flex items-center gap-4 hover:bg-zinc-900 rounded-full cursor-pointer">
+          <img class="w-6 invert" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20aria-hidden='true'%20class='r-4qtqp9%20r-yyyyoo%20r-dnmrzs%20r-bnwqim%20r-lrvibr%20r-m6rgpd%20r-1nao33i%20r-lwhw9o%20r-cnnz9e'%3e%3cg%3e%3cpath%20d='M19.993%209.042C19.48%205.017%2016.054%202%2011.996%202s-7.49%203.021-7.999%207.051L2.866%2018H7.1c.463%202.282%202.481%204%204.9%204s4.437-1.718%204.9-4h4.236l-1.143-8.958zM12%2020c-1.306%200-2.417-.835-2.829-2h5.658c-.412%201.165-1.523%202-2.829%202zm-6.866-4l.847-6.698C6.364%206.272%208.941%204%2011.996%204s5.627%202.268%206.013%205.295L18.864%2016H5.134z'%3e%3c/path%3e%3c/g%3e%3c/svg%3e">
+          <span class="hidden xl:block">Notifications</span>
+        </li>
+
+        <li class="flex items-center gap-4 hover:bg-zinc-900 rounded-full cursor-pointer">
+          <img class="w-6 invert" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20aria-hidden='true'%20class='r-4qtqp9%20r-yyyyoo%20r-dnmrzs%20r-bnwqim%20r-lrvibr%20r-m6rgpd%20r-1nao33i%20r-lwhw9o%20r-cnnz9e'%3e%3cg%3e%3cpath%20d='M10%204c-1.105%200-2%20.9-2%202s.895%202%202%202%202-.9%202-2-.895-2-2-2zM6%206c0-2.21%201.791-4%204-4s4%201.79%204%204-1.791%204-4%204-4-1.79-4-4zm13%204v3h2v-3h3V8h-3V5h-2v3h-3v2h3zM3.651%2019h12.698c-.337-1.8-1.023-3.21-1.945-4.19C13.318%2013.65%2011.838%2013%2010%2013s-3.317.65-4.404%201.81c-.922.98-1.608%202.39-1.945%204.19zm.486-5.56C5.627%2011.85%207.648%2011%2010%2011s4.373.85%205.863%202.44c1.477%201.58%202.366%203.8%202.632%206.46l.11%201.1H1.395l.11-1.1c.266-2.66%201.155-4.88%202.632-6.46z'%3e%3c/path%3e%3c/g%3e%3c/svg%3e">
+          <span class="hidden xl:block">Follow</span>
+        </li>
+
+        <li class="flex items-center gap-4 hover:bg-zinc-900 rounded-full cursor-pointer">
+          <img class="w-6 invert" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20aria-hidden='true'%20class='r-4qtqp9%20r-yyyyoo%20r-dnmrzs%20r-bnwqim%20r-lrvibr%20r-m6rgpd%20r-1nao33i%20r-lwhw9o%20r-cnnz9e'%3e%3cg%3e%3cpath%20d='M1.998%205.5c0-1.381%201.119-2.5%202.5-2.5h15c1.381%200%202.5%201.119%202.5%202.5v13c0%201.381-1.119%202.5-2.5%202.5h-15c-1.381%200-2.5-1.119-2.5-2.5v-13zm2.5-.5c-.276%200-.5.224-.5.5v2.764l8%203.638%208-3.636V5.5c0-.276-.224-.5-.5-.5h-15zm15.5%205.463l-8%203.636-8-3.638V18.5c0%20.276.224.5.5.5h15c.276%200%20.5-.224.5-.5v-8.037z'%3e%3c/path%3e%3c/g%3e%3c/svg%3e">
+          <span class="hidden xl:block">Chat</span>
+        </li>
+
+        <li class="flex items-center gap-4 hover:bg-zinc-900 rounded-full cursor-pointer">
+          <img class="w-6 invert" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2033%2032'%20aria-hidden='true'%20class='r-4qtqp9%20r-yyyyoo%20r-dnmrzs%20r-bnwqim%20r-lrvibr%20r-m6rgpd%20r-1nao33i%20r-lwhw9o%20r-cnnz9e'%3e%3cg%3e%3cpath%20d='M12.745%2020.54l10.97-8.19c.539-.4%201.307-.244%201.564.38%201.349%203.288.746%207.241-1.938%209.955-2.683%202.714-6.417%203.31-9.83%201.954l-3.728%201.745c5.347%203.697%2011.84%202.782%2015.898-1.324%203.219-3.255%204.216-7.692%203.284-11.693l.008.009c-1.351-5.878.332-8.227%203.782-13.031L33%200l-4.54%204.59v-.014L12.743%2020.544m-2.263%201.987c-3.837-3.707-3.175-9.446.1-12.755%202.42-2.449%206.388-3.448%209.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41%202.728-3.483%203.523-4.579%208.94-2.697%2013.561%201.405%203.454-.899%205.898-3.22%208.364C1.49%2030.2.666%2031.074%200%2032l10.478-9.466'%3e%3c/path%3e%3c/g%3e%3c/svg%3e">
+          <span class="hidden xl:block">Grok</span>
+        </li>
+
+        <li class="flex items-center gap-4 hover:bg-zinc-900 rounded-full cursor-pointer">
+          <img class="w-6 invert" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20aria-hidden='true'%20class='r-4qtqp9%20r-yyyyoo%20r-dnmrzs%20r-bnwqim%20r-lrvibr%20r-m6rgpd%20r-1nao33i%20r-lwhw9o%20r-cnnz9e'%3e%3cg%3e%3cpath%20d='M5.651%2019h12.698c-.337-1.8-1.023-3.21-1.945-4.19C15.318%2013.65%2013.838%2013%2012%2013s-3.317.65-4.404%201.81c-.922.98-1.608%202.39-1.945%204.19zm.486-5.56C7.627%2011.85%209.648%2011%2012%2011s4.373.85%205.863%202.44c1.477%201.58%202.366%203.8%202.632%206.46l.11%201.1H3.395l.11-1.1c.266-2.66%201.155-4.88%202.632-6.46zM12%204c-1.105%200-2%20.9-2%202s.895%202%202%202%202-.9%202-2-.895-2-2-2zM8%206c0-2.21%201.791-4%204-4s4%201.79%204%204-1.791%204-4%204-4-1.79-4-4z'%3e%3c/path%3e%3c/g%3e%3c/svg%3e">
+          <span class="hidden xl:block">Profile</span>
+        </li>
+
+        <li class="flex items-center gap-4 hover:bg-zinc-900 rounded-full cursor-pointer">
+          <img class="w-6 invert" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20aria-hidden='true'%20class='r-4qtqp9%20r-yyyyoo%20r-dnmrzs%20r-bnwqim%20r-lrvibr%20r-m6rgpd%20r-1nao33i%20r-lwhw9o%20r-cnnz9e'%3e%3cg%3e%3cpath%20d='M3.75%2012c0-4.56%203.69-8.25%208.25-8.25s8.25%203.69%208.25%208.25-3.69%208.25-8.25%208.25S3.75%2016.56%203.75%2012zM12%201.75C6.34%201.75%201.75%206.34%201.75%2012S6.34%2022.25%2012%2022.25%2022.25%2017.66%2022.25%2012%2017.66%201.75%2012%201.75zm-4.75%2011.5c.69%200%201.25-.56%201.25-1.25s-.56-1.25-1.25-1.25S6%2011.31%206%2012s.56%201.25%201.25%201.25zm9.5%200c.69%200%201.25-.56%201.25-1.25s-.56-1.25-1.25-1.25-1.25.56-1.25%201.25.56%201.25%201.25%201.25zM13.25%2012c0%20.69-.56%201.25-1.25%201.25s-1.25-.56-1.25-1.25.56-1.25%201.25-1.25%201.25.56%201.25%201.25z'%3e%3c/path%3e%3c/g%3e%3c/svg%3e">
+          <span class="hidden xl:block">More</span>
+        </li>
+
+        <li>
+          <!-- Post Button -->
+          <div class=" xl:hidden block">
+            <button class=" bg-white text-black p-2 rounded-[50%]  hover:bg-gray-200 transition">
+              <span class="material-symbols-outlined">
+                ink_pen
+              </span>
+            </button>
+          </div>
+        </li>
+
+      </ul>
+
+      
+          <!-- Icon -->
+          <div class="mt-4 hidden xl:block">
+            <button class="w-full bg-white text-black py-3 rounded-full font-bold hover:bg-gray-200 transition">
+              Post
+            </button>
+          </div>
+        
+
+          
+          <!-- profile -->
+          <div class=" flex gap-3 mt-4 xl:mt-8">
+            <div><img class="w-9 h-9 rounded-full object-cover" src="/assets/myprofile-DqCREXMd.jpeg" alt=""></div>
+            <div class="hidden xl:block">
+              <p class="font-bold text-sm">Deepak Singh</p>
+              <p class="text-[0.7rem] text-gray-400">DeepakDev88</p>
+            </div>
+          </div>
+
+
+
+    </div>
+
+
+    <!-- MIDDLE SECTION -->
+    <div class=" flex-1 flex flex-col   border-x border-gray-600 min-h-screen ">
+      <!-- <h1 class="text-xl font-bold">Home</h1> -->
+      <header
+        class=" flex justify-around py-4 backdrop-blur-md  bg-black/40 z-10 border-b sticky top-0 border-x border-gray-600  text-white w-full ">
+        <p class="border-b-2 border-blue-500 font-bold">For You</p>
+        <p class="text-gray-500">Following</p>
+      </header>
+
+      <main class=" flex flex-col  flex-1 relative">
+        <!-- Section-1 -->
+        <section class=" hidden sm:block px-6 py-2 border-b border-gray-600">
+          <div class=" profile flex gap-2">
+            <div>
+              <img class="w-11 h-11 object-cover rounded-full" src="/assets/myprofile-DqCREXMd.jpeg" alt="">
+            </div>
+            <div class=" flex gap-1.5 flex-col w-full">
+              <textarea placeholder="What's happening?"
+                class="w-full rounded-md p-2 resize-none overflow-hidden bg-black min-h-10 max-h-25 "></textarea>
+              <div class=" cursor-pointer flex flex-col gap-2 text-blue-400 text-sm">
+
+                <div class="flex gap-1.5">
+                  <span class=" material-symbols-outlined">
+                    globe_asia
+                  </span>
+                  <p class="font-bold">Everyone can reply</p>
+                </div>
+
+                <div class="w-full bg-gray-600 h-px"></div>
+
+                <div class="flex justify-between items-center">
+
+                  <!-- Icons -->
+                  <div class="flex gap-1">
+                    <span class="material-symbols-outlined">
+                      image
+                    </span>
+                    <span class="material-symbols-outlined">
+                      gif_box
+                    </span>
+
+                    <span>
+                      <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2033%2032'%20aria-hidden='true'%20class='r-4qtqp9%20r-yyyyoo%20r-dnmrzs%20r-bnwqim%20r-lrvibr%20r-m6rgpd%20r-1nao33i%20r-lwhw9o%20r-cnnz9e'%3e%3cg%3e%3cpath%20fill%20=%20'oklch(70.7%25%200.165%20254.624)'%20d='M12.745%2020.54l10.97-8.19c.539-.4%201.307-.244%201.564.38%201.349%203.288.746%207.241-1.938%209.955-2.683%202.714-6.417%203.31-9.83%201.954l-3.728%201.745c5.347%203.697%2011.84%202.782%2015.898-1.324%203.219-3.255%204.216-7.692%203.284-11.693l.008.009c-1.351-5.878.332-8.227%203.782-13.031L33%200l-4.54%204.59v-.014L12.743%2020.544m-2.263%201.987c-3.837-3.707-3.175-9.446.1-12.755%202.42-2.449%206.388-3.448%209.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41%202.728-3.483%203.523-4.579%208.94-2.697%2013.561%201.405%203.454-.899%205.898-3.22%208.364C1.49%2030.2.666%2031.074%200%2032l10.478-9.466'%3e%3c/path%3e%3c/g%3e%3c/svg%3e" class="w-6 h-6" alt="">
+                    </span>
+                    <span class="material-symbols-outlined">
+                      insert_chart
+                    </span>
+                    <span class="material-symbols-outlined">
+                      sentiment_satisfied
+                    </span>
+                    <span class="material-symbols-outlined">
+                      calendar_clock
+                    </span>
+                    <span class="material-symbols-outlined">
+                      location_on
+                    </span>
+                    <span class="material-symbols-outlined">
+                      flag_2
+                    </span>
+                  </div>
+                  <!-- Post -->
+                  <div class="w-fit">
+                    <button
+                      class="w-full bg-white text-black py-2 px-5 rounded-full font-bold hover:bg-gray-200 transition">
+                      Post
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section-2 -->
+        <section class="py-3 border-b border-gray-600 flex justify-center items-center">
+          <p class="text-blue-400 text-sm">Show 245 posts</p>
+        </section>
+
+        <!-- Section-3(Posts) -->
+        <section class=" cursor-pointer">
+          <!-- Post-1 -->
+          <div class="border-b border-gray-600 p-3 flex gap-2 ">
+            <div>
+              <img class="w-10 object-cover rounded-full"
+                src="https://pbs.twimg.com/profile_images/2008546467615580160/57KcqsTA_bigger.jpg" alt="">
+            </div>
+
+            <div class=" w-full flex flex-col gap-1.5">
+              <div class="flex justify-between">
+                <div class="flex gap-1.5">
+                  <p class="font-bold text-sm hover:underline">Elon Musk</p>
+                  <p class="text-gray-500 text-sm">@elonmusk . 14h</p>
+                </div>
+                <div class="flex gap-1.5">
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 32" aria-hidden="true"
+                      class="w-6 h-6 fill-gray-500 hover:fill-blue-400 transition">
+                      <g>
+                        <path
+                          d="M12.745 20.54l10.97-8.19c.539-.4 1.307-.244 1.564.38 1.349 3.288.746 7.241-1.938 9.955-2.683 2.714-6.417 3.31-9.83 1.954l-3.728 1.745c5.347 3.697 11.84 2.782 15.898-1.324 3.219-3.255 4.216-7.692 3.284-11.693l.008.009c-1.351-5.878.332-8.227 3.782-13.031L33 0l-4.54 4.59v-.014L12.743 20.544m-2.263 1.987c-3.837-3.707-3.175-9.446.1-12.755 2.42-2.449 6.388-3.448 9.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41 2.728-3.483 3.523-4.579 8.94-2.697 13.561 1.405 3.454-.899 5.898-3.22 8.364C1.49 30.2.666 31.074 0 32l10.478-9.466">
+                        </path>
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="hover:text-blue-400 text-gray-500 transition material-symbols-outlined">
+                    more_horiz
+                  </span>
+                </div>
+              </div>
+
+              <p class="text-sm">Fact check and ask questions about any post just by tapping the Grok logo in the upper left</p>
+              <!-- Icons -->
+              <div class=" text-sm text-gray-500 flex justify-around">
+                <div class=" hover:text-blue-400 transition flex gap-1">
+                  <span class=" material-symbols-outlined">
+                    chat_bubble
+                  </span>
+                  <p class="text-sm">3.2k</p>
+                </div>
+
+                <div class=" hover:text-green-500 flex gap-1">
+                  <span class=" material-symbols-outlined">
+                    swap_calls
+                  </span>
+                  <p class="text-sm">3.3k</p>
+                </div>
+                <div class=" hover:text-red-500 flex gap-1">
+                  <span class="material-symbols-outlined">
+                    favorite
+                  </span>
+                  <p class="text-sm">32k</p>
+                </div>
+                <div class="hover:text-blue-400 flex gap-1">
+                  <span class="material-symbols-outlined">
+                    bar_chart_4_bars
+                  </span>
+                  <p class="text-sm">10M</p>
+                </div>
+                <div class=" flex gap-1">
+                  <span class=" hover:text-blue-400 material-symbols-outlined">
+                    bookmark
+                  </span>
+                  <span class=" hover:text-blue-400 material-symbols-outlined">
+                    upload
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Post-2 -->
+          <div class="border-b border-gray-600 p-3 flex gap-3 ">
+            <div>
+              <img class="w-10 object-cover rounded-full"
+                src="https://pbs.twimg.com/profile_images/2008546467615580160/57KcqsTA_bigger.jpg" alt="">
+            </div>
+
+            <div class="w-full flex flex-col gap-3">
+              <div class="flex justify-between">
+                <div class="flex gap-1.5">
+                  <p class="font-bold text-sm hover:underline">Elon Musk</p>
+                  <p class="text-gray-500 text-sm">@elonmusk . 14h</p>
+                </div>
+                <div class="flex gap-1.5">
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 32" aria-hidden="true"
+                      class="w-6 h-6 fill-gray-500 hover:fill-blue-400 transition">
+                      <g>
+                        <path
+                          d="M12.745 20.54l10.97-8.19c.539-.4 1.307-.244 1.564.38 1.349 3.288.746 7.241-1.938 9.955-2.683 2.714-6.417 3.31-9.83 1.954l-3.728 1.745c5.347 3.697 11.84 2.782 15.898-1.324 3.219-3.255 4.216-7.692 3.284-11.693l.008.009c-1.351-5.878.332-8.227 3.782-13.031L33 0l-4.54 4.59v-.014L12.743 20.544m-2.263 1.987c-3.837-3.707-3.175-9.446.1-12.755 2.42-2.449 6.388-3.448 9.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41 2.728-3.483 3.523-4.579 8.94-2.697 13.561 1.405 3.454-.899 5.898-3.22 8.364C1.49 30.2.666 31.074 0 32l10.478-9.466">
+                        </path>
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="hover:text-blue-400 text-gray-500 transition material-symbols-outlined">
+                    more_horiz
+                  </span>
+                </div>
+              </div>
+
+              <p class="text-sm">Just Saw <Span class="text-blue-400 hover:underline">@DeepakDev88</Span> grind non-stop. Kid's insane.
+                Future Tesla CEO material. Keep an eye on him. </p>
+              <div class="flex justify-items-start items-center">
+
+                <img src="/assets/myprofile-DqCREXMd.jpeg" class="rounded-md w-50 h-50 object-cover" alt="">
+              </div>
+              <!-- Icons -->
+              <div class=" text-sm text-gray-500 flex justify-around">
+                <div class=" hover:text-blue-400 transition flex gap-1">
+                  <span class=" material-symbols-outlined">
+                    chat_bubble
+                  </span>
+                  <p class="text-sm">3.2k</p>
+                </div>
+
+                <div class=" hover:text-green-500 flex gap-1">
+                  <span class=" material-symbols-outlined">
+                    swap_calls
+                  </span>
+                  <p class="text-sm">3.3k</p>
+                </div>
+                <div class=" hover:text-red-500 flex gap-1">
+                  <span class="material-symbols-outlined">
+                    favorite
+                  </span>
+                  <p class="text-sm">32k</p>
+                </div>
+                <div class="hover:text-blue-400 flex gap-1">
+                  <span class="material-symbols-outlined">
+                    bar_chart_4_bars
+                  </span>
+                  <p class="text-sm">10M</p>
+                </div>
+                <div class=" flex gap-1">
+                  <span class=" hover:text-blue-400 material-symbols-outlined">
+                    bookmark
+                  </span>
+                  <span class=" hover:text-blue-400 material-symbols-outlined">
+                    upload
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Post-3 -->
+          <div class="border-b border-gray-600 p-3 flex gap-3 ">
+            <div>
+              <img class="w-10 object-cover rounded-full"
+                src="https://pbs.twimg.com/profile_images/1833509376528945157/5AeMNn9f_bigger.jpg" alt="">
+            </div>
+
+            <div class=" w-full flex flex-col gap-3">
+              <div class="flex justify-between">
+                <div class="flex gap-1.5">
+                  <p class="font-bold text-sm hover:underline">Narendara Modi</p>
+                  <p class="text-gray-500 text-sm">@narendramodi . 12h</p>
+                </div>
+                <div class="flex gap-1.5">
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 32" aria-hidden="true"
+                      class="w-6 h-6 fill-gray-500 hover:fill-blue-400 transition">
+                      <g>
+                        <path
+                          d="M12.745 20.54l10.97-8.19c.539-.4 1.307-.244 1.564.38 1.349 3.288.746 7.241-1.938 9.955-2.683 2.714-6.417 3.31-9.83 1.954l-3.728 1.745c5.347 3.697 11.84 2.782 15.898-1.324 3.219-3.255 4.216-7.692 3.284-11.693l.008.009c-1.351-5.878.332-8.227 3.782-13.031L33 0l-4.54 4.59v-.014L12.743 20.544m-2.263 1.987c-3.837-3.707-3.175-9.446.1-12.755 2.42-2.449 6.388-3.448 9.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41 2.728-3.483 3.523-4.579 8.94-2.697 13.561 1.405 3.454-.899 5.898-3.22 8.364C1.49 30.2.666 31.074 0 32l10.478-9.466">
+                        </path>
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="hover:text-blue-400 text-gray-500 transition material-symbols-outlined">
+                    more_horiz
+                  </span>
+                </div>
+              </div>
+
+              <p class="text-sm">On his birth anniversary today, I pay tributes to Shri Biju Patnaik Ji and remember his passion towards
+                furthering the progress of Odisha.</p>
+              <!-- Icons -->
+              <div class=" text-sm text-gray-500 flex justify-around">
+                <div class=" hover:text-blue-400 transition flex gap-1">
+                  <span class=" material-symbols-outlined">
+                    chat_bubble
+                  </span>
+                  <p class="text-sm">3.2k</p>
+                </div>
+
+                <div class=" hover:text-green-500 flex gap-1">
+                  <span class=" material-symbols-outlined">
+                    swap_calls
+                  </span>
+                  <p class="text-sm">3.3k</p>
+                </div>
+                <div class=" hover:text-red-500 flex gap-1">
+                  <span class="material-symbols-outlined">
+                    favorite
+                  </span>
+                  <p class="text-sm">32k</p>
+                </div>
+                <div class="hover:text-blue-400 flex gap-1">
+                  <span class="material-symbols-outlined">
+                    bar_chart_4_bars
+                  </span>
+                  <p class="text-sm">10M</p>
+                </div>
+                <div class=" flex gap-1">
+                  <span class=" hover:text-blue-400 material-symbols-outlined">
+                    bookmark
+                  </span>
+                  <span class=" hover:text-blue-400 material-symbols-outlined">
+                    upload
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Post-4 -->
+          <div class=" w-full border-b border-gray-600 p-3 flex gap-3 ">
+            <div>
+              <img class=" w-10  object-cover rounded-full"
+                src="https://pbs.twimg.com/profile_images/1329647526807543809/2SGvnHYV_bigger.jpg" alt="">
+            </div>
+
+            <div class=" w-full flex flex-col gap-3">
+              <div class="flex justify-between">
+                <div class="flex gap-1.5">
+                  <p class="font-bold text-sm hover:underline">Barack Obama
+                  </p>
+                  <p class="text-gray-500 text-sm">@BarackObama . 1h</p>
+                </div>
+                <div class="flex gap-1.5">
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 32" aria-hidden="true"
+                      class="w-6 h-6 fill-gray-500 hover:fill-blue-400 transition">
+                      <g>
+                        <path
+                          d="M12.745 20.54l10.97-8.19c.539-.4 1.307-.244 1.564.38 1.349 3.288.746 7.241-1.938 9.955-2.683 2.714-6.417 3.31-9.83 1.954l-3.728 1.745c5.347 3.697 11.84 2.782 15.898-1.324 3.219-3.255 4.216-7.692 3.284-11.693l.008.009c-1.351-5.878.332-8.227 3.782-13.031L33 0l-4.54 4.59v-.014L12.743 20.544m-2.263 1.987c-3.837-3.707-3.175-9.446.1-12.755 2.42-2.449 6.388-3.448 9.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41 2.728-3.483 3.523-4.579 8.94-2.697 13.561 1.405 3.454-.899 5.898-3.22 8.364C1.49 30.2.666 31.074 0 32l10.478-9.466">
+                        </path>
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="hover:text-blue-400 text-gray-500 transition material-symbols-outlined">
+                    more_horiz
+                  </span>
+                </div>
+              </div>
+
+              <p class="text-sm">I was the former president of the United States back then US citizen lives a peacful life but now due
+                to this orange monkey(Donald J.Trump) our nation are not in good conditon if had i had chance so, i kick
+                on the ass of trump and elect the <span class="text-blue-400 hover:underline">@DeepakDev88 </span> as a
+                president of United States. </p>
+              <!-- Icons -->
+              <div class=" text-sm text-gray-500 flex justify-around">
+                <div class=" hover:text-blue-400 transition flex gap-1">
+                  <span class=" material-symbols-outlined">
+                    chat_bubble
+                  </span>
+                  <p class="text-sm">3.2k</p>
+                </div>
+
+                <div class=" hover:text-green-500 flex gap-1">
+                  <span class=" material-symbols-outlined">
+                    swap_calls
+                  </span>
+                  <p class="text-sm">3.3k</p>
+                </div>
+                <div class=" hover:text-red-500 flex gap-1">
+                  <span class="material-symbols-outlined">
+                    favorite
+                  </span>
+                  <p class="text-sm">32k</p>
+                </div>
+                <div class="hover:text-blue-400 flex gap-1">
+                  <span class="material-symbols-outlined">
+                    bar_chart_4_bars
+                  </span>
+                  <p class="text-sm">10M</p>
+                </div>
+                <div class=" flex gap-1">
+                  <span class=" hover:text-blue-400 material-symbols-outlined">
+                    bookmark
+                  </span>
+                  <span class=" hover:text-blue-400 material-symbols-outlined">
+                    upload
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Post-5 -->
+          <div class="border-b border-gray-600 p-3 flex gap-3 ">
+            <div>
+              <img class="w-10 object-cover rounded-full"
+                src="https://pbs.twimg.com/profile_images/2008546467615580160/57KcqsTA_bigger.jpg" alt="">
+            </div>
+
+            <div class=" w-full flex flex-col gap-3">
+              <div class="flex justify-between">
+                <div class="flex gap-1.5">
+                  <p class="font-bold text-sm hover:underline">Elon Musk</p>
+                  <p class="text-gray-500 text-sm">@elonmusk . 14d</p>
+                </div>
+                <div class="flex gap-1.5">
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 32" aria-hidden="true"
+                      class="w-6 h-6 fill-gray-500 hover:fill-blue-400 transition">
+                      <g>
+                        <path
+                          d="M12.745 20.54l10.97-8.19c.539-.4 1.307-.244 1.564.38 1.349 3.288.746 7.241-1.938 9.955-2.683 2.714-6.417 3.31-9.83 1.954l-3.728 1.745c5.347 3.697 11.84 2.782 15.898-1.324 3.219-3.255 4.216-7.692 3.284-11.693l.008.009c-1.351-5.878.332-8.227 3.782-13.031L33 0l-4.54 4.59v-.014L12.743 20.544m-2.263 1.987c-3.837-3.707-3.175-9.446.1-12.755 2.42-2.449 6.388-3.448 9.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41 2.728-3.483 3.523-4.579 8.94-2.697 13.561 1.405 3.454-.899 5.898-3.22 8.364C1.49 30.2.666 31.074 0 32l10.478-9.466">
+                        </path>
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="hover:text-blue-400 text-gray-500 transition material-symbols-outlined">
+                    more_horiz
+                  </span>
+                </div>
+              </div>
+
+              <p class="text-sm">Grok Imagine improves again</p>
+              <!-- Icons -->
+              <div class=" text-sm text-gray-500 flex justify-around">
+                <div class=" hover:text-blue-400 transition flex gap-1">
+                  <span class=" material-symbols-outlined">
+                    chat_bubble
+                  </span>
+                  <p class="text-sm">3.2k</p>
+                </div>
+
+                <div class=" hover:text-green-500 flex gap-1">
+                  <span class=" material-symbols-outlined">
+                    swap_calls
+                  </span>
+                  <p class="text-sm">3.3k</p>
+                </div>
+                <div class=" hover:text-red-500 flex gap-1">
+                  <span class="material-symbols-outlined">
+                    favorite
+                  </span>
+                  <p class="text-sm">32k</p>
+                </div>
+                <div class="hover:text-blue-400 flex gap-1">
+                  <span class="material-symbols-outlined">
+                    bar_chart_4_bars
+                  </span>
+                  <p class="text-sm">10M</p>
+                </div>
+                <div class=" flex gap-1">
+                  <span class=" hover:text-blue-400 material-symbols-outlined">
+                    bookmark
+                  </span>
+                  <span class=" hover:text-blue-400 material-symbols-outlined">
+                    upload
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Bottom Nav -->
+      <div
+        class=" p-2 backdrop-blur-md  bg-black/40 w-full flex justify-around z-10 sticky bottom-0  sm:hidden  ">
+        <span><img class="invert w-6 h-6" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20aria-hidden='true'%20class='r-4qtqp9%20r-yyyyoo%20r-dnmrzs%20r-bnwqim%20r-lrvibr%20r-m6rgpd%20r-1nao33i%20r-lwhw9o%20r-cnnz9e'%3e%3cg%3e%3cpath%20d='M21.591%207.146L12.52%201.157c-.316-.21-.724-.21-1.04%200l-9.071%205.99c-.26.173-.409.456-.409.757v13.183c0%20.502.418.913.929.913H9.14c.51%200%20.929-.41.929-.913v-7.075h3.909v7.075c0%20.502.417.913.928.913h6.165c.511%200%20.929-.41.929-.913V7.904c0-.301-.158-.584-.408-.758z'%3e%3c/path%3e%3c/g%3e%3c/svg%3e" alt=""></span>
+        <span><img class="invert w-6 h-6" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20aria-hidden='true'%20class='r-4qtqp9%20r-yyyyoo%20r-dnmrzs%20r-bnwqim%20r-lrvibr%20r-m6rgpd%20r-1nao33i%20r-lwhw9o%20r-cnnz9e'%3e%3cg%3e%3cpath%20d='M10.25%203.75c-3.59%200-6.5%202.91-6.5%206.5s2.91%206.5%206.5%206.5c1.795%200%203.419-.726%204.596-1.904%201.178-1.177%201.904-2.801%201.904-4.596%200-3.59-2.91-6.5-6.5-6.5zm-8.5%206.5c0-4.694%203.806-8.5%208.5-8.5s8.5%203.806%208.5%208.5c0%201.986-.682%203.815-1.824%205.262l4.781%204.781-1.414%201.414-4.781-4.781c-1.447%201.142-3.276%201.824-5.262%201.824-4.694%200-8.5-3.806-8.5-8.5z'%3e%3c/path%3e%3c/g%3e%3c/svg%3e" alt=""></span>
+        <span><img class="invert w-6 h-6" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2033%2032'%20aria-hidden='true'%20class='r-4qtqp9%20r-yyyyoo%20r-dnmrzs%20r-bnwqim%20r-lrvibr%20r-m6rgpd%20r-1nao33i%20r-lwhw9o%20r-cnnz9e'%3e%3cg%3e%3cpath%20d='M12.745%2020.54l10.97-8.19c.539-.4%201.307-.244%201.564.38%201.349%203.288.746%207.241-1.938%209.955-2.683%202.714-6.417%203.31-9.83%201.954l-3.728%201.745c5.347%203.697%2011.84%202.782%2015.898-1.324%203.219-3.255%204.216-7.692%203.284-11.693l.008.009c-1.351-5.878.332-8.227%203.782-13.031L33%200l-4.54%204.59v-.014L12.743%2020.544m-2.263%201.987c-3.837-3.707-3.175-9.446.1-12.755%202.42-2.449%206.388-3.448%209.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41%202.728-3.483%203.523-4.579%208.94-2.697%2013.561%201.405%203.454-.899%205.898-3.22%208.364C1.49%2030.2.666%2031.074%200%2032l10.478-9.466'%3e%3c/path%3e%3c/g%3e%3c/svg%3e" alt=""></span>
+        <span><img class="invert w-6 h-6" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20aria-hidden='true'%20class='r-4qtqp9%20r-yyyyoo%20r-dnmrzs%20r-bnwqim%20r-lrvibr%20r-m6rgpd%20r-1nao33i%20r-lwhw9o%20r-cnnz9e'%3e%3cg%3e%3cpath%20d='M19.993%209.042C19.48%205.017%2016.054%202%2011.996%202s-7.49%203.021-7.999%207.051L2.866%2018H7.1c.463%202.282%202.481%204%204.9%204s4.437-1.718%204.9-4h4.236l-1.143-8.958zM12%2020c-1.306%200-2.417-.835-2.829-2h5.658c-.412%201.165-1.523%202-2.829%202zm-6.866-4l.847-6.698C6.364%206.272%208.941%204%2011.996%204s5.627%202.268%206.013%205.295L18.864%2016H5.134z'%3e%3c/path%3e%3c/g%3e%3c/svg%3e" alt=""></span>
+        <span><img class="invert w-6 h-6" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20aria-hidden='true'%20class='r-4qtqp9%20r-yyyyoo%20r-dnmrzs%20r-bnwqim%20r-lrvibr%20r-m6rgpd%20r-1nao33i%20r-lwhw9o%20r-cnnz9e'%3e%3cg%3e%3cpath%20d='M1.998%205.5c0-1.381%201.119-2.5%202.5-2.5h15c1.381%200%202.5%201.119%202.5%202.5v13c0%201.381-1.119%202.5-2.5%202.5h-15c-1.381%200-2.5-1.119-2.5-2.5v-13zm2.5-.5c-.276%200-.5.224-.5.5v2.764l8%203.638%208-3.636V5.5c0-.276-.224-.5-.5-.5h-15zm15.5%205.463l-8%203.636-8-3.638V18.5c0%20.276.224.5.5.5h15c.276%200%20.5-.224.5-.5v-8.037z'%3e%3c/path%3e%3c/g%3e%3c/svg%3e" alt=""></span>
+      </div>
+    </div>
+
+
+    <!-- RIGHT SECTION -->
+    <div class=" hidden lg:block w-[30%] p-5 py-0   ">
+
+
+      <!-- Search bar -->
+      <div class="sticky top-0 z-20 backdrop-blur-md  py-4 w-full  bg-black/40">
+        <div class="relative search w-full">
+          <!-- search Icon -->
+          <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20aria-hidden='true'%20class='r-4qtqp9%20r-yyyyoo%20r-dnmrzs%20r-bnwqim%20r-lrvibr%20r-m6rgpd%20r-1nao33i%20r-lwhw9o%20r-cnnz9e'%3e%3cg%3e%3cpath%20fill%20=%20'rgb(113,%20118,%20123)'%20d='M10.25%203.75c-3.59%200-6.5%202.91-6.5%206.5s2.91%206.5%206.5%206.5c1.795%200%203.419-.726%204.596-1.904%201.178-1.177%201.904-2.801%201.904-4.596%200-3.59-2.91-6.5-6.5-6.5zm-8.5%206.5c0-4.694%203.806-8.5%208.5-8.5s8.5%203.806%208.5%208.5c0%201.986-.682%203.815-1.824%205.262l4.781%204.781-1.414%201.414-4.781-4.781c-1.447%201.142-3.276%201.824-5.262%201.824-4.694%200-8.5-3.806-8.5-8.5z'%3e%3c/path%3e%3c/g%3e%3c/svg%3e" class="w-5 absolute left-3 top-1/2 -translate-y-1/2" alt="">
+          <input type="text" placeholder="Search"
+            class="border border-gray-600   w-full px-9 pr-4 py-2 pl-10 text-[12px] rounded-full focus:outline-none focus:ring-1 focus:ring-blue-400">
+        </div>
+      </div>
+
+      <!-- Cards -->
+      <div class=" sticky top-0 flex flex-col gap-3.5 overflow-y-hidden flex-1">
+
+        <!-- Subscription -->
+        <div class=" p-4 border border-gray-600 rounded-2xl">
+          <div class="flex flex-col gap-3">
+            <div class="flex justify-between ">
+              <h2 class="font-bold text-sm xl:text-lg">Subscribe to Premium</h2>
+              <p
+                class="bg-green-700/40 font-bold px-2 py-0.5 md:px-1 md:py-0.5 rounded-full text-green-600   text-[14px]">
+                50% off</p>
+            </div>
+            <p class="text-sm">Get rid of ads, see your analytics, boost your replies and unlock 20+ features.</p>
+          </div>
+          <button class="font-bold rounded-full bg-blue-400 px-4 py-2 text-sm mt-3 cursor-pointer">Subscribe</button>
+        </div>
+
+        <!-- Whats Happening -->
+        <div class="  border border-gray-600 flex flex-col gap-4  p-4 rounded-2xl">
+          <h2 class="font-bold text-xl">What's happening</h2>
+          <div>
+            <p class="text-[0.75rem] text-gray-500 cursor-pointer">Politics . Trending</p>
+            <p class="text-[0.9rem] font-bold cursor-pointer">Trump and Netanyahu</p>
+          </div>
+          <div>
+            <p class="text-[0.75rem] text-gray-500 cursor-pointer">Technology . Trending</p>
+            <p class="text-[0.9rem] font-bold cursor-pointer">#GalaxyS26UltraAIPhone</p>
+          </div>
+          <div>
+            <p class="text-[0.75rem] text-gray-500 cursor-pointer">Sports . Trending</p>
+            <p class="text-[0.9rem] font-bold cursor-pointer">Finn Allen</p>
+          </div>
+          <div>
+            <p class="text-[0.75rem] text-gray-500 cursor-pointer">Technology . Trending</p>
+            <p class="text-[0.9rem] font-bold cursor-pointer">iPad</p>
+          </div>
+          <p class="text-blue-400 text-[0.85rem] cursor-pointer">Show More</p>
+        </div>
+
+        <!-- Who to Follow -->
+
+        <div class="  border border-gray-600 flex flex-col gap-4  p-4 rounded-2xl">
+          <h2 class="font-bold text-xl">Who to follow</h2>
+
+          <div class=" cursor-pointer flex justify-between items-center text-sm">
+            <div class="flex gap-2 items-center">
+              <div>
+                <img class="w-9 h-9 rounded-full "
+                  src="https://pbs.twimg.com/profile_images/1696577202496966657/FhNkxqHF_x96.jpg" alt="">
+              </div>
+              <div>
+                <p class=" hover:underline font-bold">billboard</p>
+                <p class="text-gray-500">@billboard</p>
+              </div>
+            </div>
+
+            <div>
+              <button
+                class=" cursor-pointer text-[0.85rem] hover:bg-gray-200 transition w-fit rounded-full font-bold text-black bg-white px-4 py-1">Follow</button>
+            </div>
+          </div>
+
+
+          <div class=" cursor-pointer flex justify-between items-center text-sm">
+            <div class="flex gap-2 items-center">
+              <div>
+                <img class="w-9 h-9 rounded-full "
+                  src="https://pbs.twimg.com/profile_images/1692077157512785920/z9C1zW17_x96.jpg" alt="">
+              </div>
+              <div>
+                <p class=" hover:underline font-bold">BCCI</p>
+                <p class="text-gray-500">@bcci</p>
+              </div>
+            </div>
+
+            <div>
+              <button
+                class=" cursor-pointer text-[0.85rem] hover:bg-gray-200 transition w-fit rounded-full font-bold text-black bg-white px-4 py-1">Follow</button>
+            </div>
+          </div>
+
+
+          <div class=" cursor-pointer flex justify-between items-center text-sm">
+            <div class="flex gap-2 items-center">
+              <div>
+                <img class="w-9 h-9 rounded-full "
+                  src="https://pbs.twimg.com/profile_images/1262261228652675072/Pl_u58Pb_x96.jpg" alt="">
+              </div>
+              <div>
+                <p class=" hover:underline font-bold">Amitabh Bachchan</p>
+                <p class="text-gray-500">@SrBachchan</p>
+              </div>
+            </div>
+
+            <div>
+              <button
+                class=" cursor-pointer text-[0.85rem] hover:bg-gray-200 transition w-fit rounded-full font-bold text-black bg-white px-4 py-1">Follow</button>
+            </div>
+          </div>
+          <p class="text-blue-400 text-[0.85rem] cursor-pointer *:">Show More</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
